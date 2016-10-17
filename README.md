@@ -17,9 +17,9 @@ RetroluxSerializer is available through [Carthage](https://github.com/Carthage/C
 Then, add this to your `Cartfile`:
 
 ```
-github "izeni-team/RetroluxSerializer" ~> 0.1.0
+github "izeni-team/RetroluxReflector" ~> 0.1.0
 ```
 
-Run `carthage update RetroluxSerializer` to compile the framework.
+Run `carthage update RetroluxReflector` to compile the framework.
 
 Then follow [these instructions](https://github.com/Carthage/Carthage#adding-frameworks-to-an-application) to link your application against the framework.
