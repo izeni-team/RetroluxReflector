@@ -13,6 +13,7 @@
 		496845071DB4AE6700825321 /* PropertyTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496845021DB4AE6700825321 /* PropertyTypeTests.swift */; };
 		496845081DB4AE6700825321 /* ReflectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496845031DB4AE6700825321 /* ReflectionTests.swift */; };
 		496845091DB4AE6700825321 /* DateTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496845041DB4AE6700825321 /* DateTransformer.swift */; };
+		4968450B1DB4AFB400825321 /* ValueTransformerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968450A1DB4AFB400825321 /* ValueTransformerTests.swift */; };
 		499BED301DB4AD1F00FCECD1 /* Reflectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499BED271DB4AD1F00FCECD1 /* Reflectable.swift */; };
 		499BED311DB4AD1F00FCECD1 /* ReflectableTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499BED281DB4AD1F00FCECD1 /* ReflectableTransformer.swift */; };
 		499BED321DB4AD1F00FCECD1 /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499BED291DB4AD1F00FCECD1 /* Property.swift */; };
@@ -42,6 +43,7 @@
 		496845021DB4AE6700825321 /* PropertyTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertyTypeTests.swift; sourceTree = "<group>"; };
 		496845031DB4AE6700825321 /* ReflectionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReflectionTests.swift; sourceTree = "<group>"; };
 		496845041DB4AE6700825321 /* DateTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTransformer.swift; sourceTree = "<group>"; };
+		4968450A1DB4AFB400825321 /* ValueTransformerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueTransformerTests.swift; sourceTree = "<group>"; };
 		499BECCB1DB4896B00FCECD1 /* RetroluxReflector.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RetroluxReflector.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		499BED0E1DB48DF100FCECD1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		499BED271DB4AD1F00FCECD1 /* Reflectable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reflectable.swift; path = RetroluxReflector/Reflectable.swift; sourceTree = SOURCE_ROOT; };
@@ -83,6 +85,7 @@
 				496845031DB4AE6700825321 /* ReflectionTests.swift */,
 				496845041DB4AE6700825321 /* DateTransformer.swift */,
 				496844F91DB4AE4100825321 /* Info.plist */,
+				4968450A1DB4AFB400825321 /* ValueTransformerTests.swift */,
 			);
 			path = RetroluxReflectorTests;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				496845071DB4AE6700825321 /* PropertyTypeTests.swift in Sources */,
+				4968450B1DB4AFB400825321 /* ValueTransformerTests.swift in Sources */,
 				496845051DB4AE6700825321 /* ReflectorTests.swift in Sources */,
 				496845091DB4AE6700825321 /* DateTransformer.swift in Sources */,
 				496845081DB4AE6700825321 /* ReflectionTests.swift in Sources */,
