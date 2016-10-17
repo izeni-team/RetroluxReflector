@@ -18,7 +18,7 @@
 		499BED311DB4AD1F00FCECD1 /* ReflectableTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499BED281DB4AD1F00FCECD1 /* ReflectableTransformer.swift */; };
 		499BED321DB4AD1F00FCECD1 /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499BED291DB4AD1F00FCECD1 /* Property.swift */; };
 		499BED331DB4AD1F00FCECD1 /* Reflector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499BED2A1DB4AD1F00FCECD1 /* Reflector.swift */; };
-		499BED341DB4AD1F00FCECD1 /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499BED2B1DB4AD1F00FCECD1 /* Object.swift */; };
+		499BED341DB4AD1F00FCECD1 /* Reflection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499BED2B1DB4AD1F00FCECD1 /* Reflection.swift */; };
 		499BED351DB4AD1F00FCECD1 /* ValueTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499BED2C1DB4AD1F00FCECD1 /* ValueTransformer.swift */; };
 		499BED361DB4AD1F00FCECD1 /* PropertyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499BED2D1DB4AD1F00FCECD1 /* PropertyType.swift */; };
 		499BED371DB4AD1F00FCECD1 /* RetroluxReflector.h in Headers */ = {isa = PBXBuildFile; fileRef = 499BED2E1DB4AD1F00FCECD1 /* RetroluxReflector.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -50,7 +50,7 @@
 		499BED281DB4AD1F00FCECD1 /* ReflectableTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReflectableTransformer.swift; path = RetroluxReflector/ReflectableTransformer.swift; sourceTree = SOURCE_ROOT; };
 		499BED291DB4AD1F00FCECD1 /* Property.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Property.swift; path = RetroluxReflector/Property.swift; sourceTree = SOURCE_ROOT; };
 		499BED2A1DB4AD1F00FCECD1 /* Reflector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reflector.swift; path = RetroluxReflector/Reflector.swift; sourceTree = SOURCE_ROOT; };
-		499BED2B1DB4AD1F00FCECD1 /* Object.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Object.swift; path = RetroluxReflector/Object.swift; sourceTree = SOURCE_ROOT; };
+		499BED2B1DB4AD1F00FCECD1 /* Reflection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reflection.swift; path = RetroluxReflector/Reflection.swift; sourceTree = SOURCE_ROOT; };
 		499BED2C1DB4AD1F00FCECD1 /* ValueTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ValueTransformer.swift; path = RetroluxReflector/ValueTransformer.swift; sourceTree = SOURCE_ROOT; };
 		499BED2D1DB4AD1F00FCECD1 /* PropertyType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PropertyType.swift; path = RetroluxReflector/PropertyType.swift; sourceTree = SOURCE_ROOT; };
 		499BED2E1DB4AD1F00FCECD1 /* RetroluxReflector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RetroluxReflector.h; path = RetroluxReflector/RetroluxReflector.h; sourceTree = SOURCE_ROOT; };
@@ -116,7 +116,7 @@
 				499BED281DB4AD1F00FCECD1 /* ReflectableTransformer.swift */,
 				499BED291DB4AD1F00FCECD1 /* Property.swift */,
 				499BED2A1DB4AD1F00FCECD1 /* Reflector.swift */,
-				499BED2B1DB4AD1F00FCECD1 /* Object.swift */,
+				499BED2B1DB4AD1F00FCECD1 /* Reflection.swift */,
 				499BED2C1DB4AD1F00FCECD1 /* ValueTransformer.swift */,
 				499BED2D1DB4AD1F00FCECD1 /* PropertyType.swift */,
 				499BED2E1DB4AD1F00FCECD1 /* RetroluxReflector.h */,
@@ -262,7 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				499BED341DB4AD1F00FCECD1 /* Object.swift in Sources */,
+				499BED341DB4AD1F00FCECD1 /* Reflection.swift in Sources */,
 				499BED361DB4AD1F00FCECD1 /* PropertyType.swift in Sources */,
 				499BED351DB4AD1F00FCECD1 /* ValueTransformer.swift in Sources */,
 				499BED331DB4AD1F00FCECD1 /* Reflector.swift in Sources */,
