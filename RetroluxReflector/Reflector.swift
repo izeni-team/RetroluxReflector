@@ -34,40 +34,40 @@ public enum ReflectionError: Error {
 open class Reflector {
     public init() {}
     
-    open func convert<T: Reflectable>(fromJSONArrayData arrayData: Data, to type: T.Type) throws -> [T] {
+    open func convert(fromJSONArrayData arrayData: Data, to type: Reflectable.Type) throws -> [Reflectable] {
         guard let objects = try JSONSerialization.jsonObject(with: arrayData, options: []) as? [[String: Any]] else {
             throw SerializationError.invalidRootJSONType
         }
-        return try convert(fromArray: objects, to: T.self)
+        return try convert(fromArray: objects, to: type)
     }
     
-    open func convert<T: Reflectable>(fromJSONDictionaryData dictionaryData: Data, to type: T.Type) throws -> T {
+    open func convert(fromJSONDictionaryData dictionaryData: Data, to type: Reflectable.Type) throws -> Reflectable {
         guard let object = try JSONSerialization.jsonObject(with: dictionaryData, options: []) as? [String: Any] else {
             throw SerializationError.invalidRootJSONType
         }
-        return try convert(fromDictionary: object, to: T.self)
+        return try convert(fromDictionary: object, to: type)
     }
     
-    open func convertToJSONDictionaryData<T: Reflectable>(from instance: T) throws -> Data {
+    open func convertToJSONDictionaryData(from instance: Reflectable) throws -> Data {
         let dictionary = try convertToDictionary(from: instance)
         return try JSONSerialization.data(withJSONObject: dictionary, options: [])
     }
     
-    open func convertToJSONArrayData<T: Reflectable>(from instances: [T]) throws -> Data {
+    open func convertToJSONArrayData(from instances: [Reflectable]) throws -> Data {
         let array = try convertToArray(from: instances)
         return try JSONSerialization.data(withJSONObject: array, options: [])
     }
     
-    open func convert<T: Reflectable>(fromArray array: [[String: Any]], to type: T.Type) throws -> [T] {
-        var output: [T] = []
+    open func convert(fromArray array: [[String: Any]], to type: Reflectable.Type) throws -> [Reflectable] {
+        var output: [Reflectable] = []
         for dictionary in array {
-            output.append(try convert(fromDictionary: dictionary, to: T.self))
+            output.append(try convert(fromDictionary: dictionary, to: type))
         }
         return output
     }
     
-    open func convert<T: Reflectable>(fromDictionary dictionary: [String: Any], to type: T.Type) throws -> T {
-        let instance = T.init()
+    open func convert(fromDictionary dictionary: [String: Any], to type: Reflectable.Type) throws -> Reflectable {
+        let instance = type.init()
         let properties = try reflect(instance)
         for property in properties {
             let rawValue = dictionary[property.mappedTo]
@@ -76,7 +76,7 @@ open class Reflector {
         return instance
     }
     
-    open func convertToArray<T: Reflectable>(from instances: [T]) throws -> [[String: Any]] {
+    open func convertToArray(from instances: [Reflectable]) throws -> [[String: Any]] {
         var output: [[String: Any]] = []
         for instance in instances {
             output.append(try convertToDictionary(from: instance))
@@ -84,7 +84,7 @@ open class Reflector {
         return output
     }
     
-    open func convertToDictionary<T: Reflectable>(from instance: T) throws -> [String: Any] {
+    open func convertToDictionary(from instance: Reflectable) throws -> [String: Any] {
         var dictionary: [String: Any] = [:]
         let properties = try reflect(instance)
         for property in properties {

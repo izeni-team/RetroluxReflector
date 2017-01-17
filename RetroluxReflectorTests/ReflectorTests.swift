@@ -131,7 +131,7 @@ class RetroluxReflectorTests: XCTestCase {
         let reflector = Reflector()
         
         do {
-            let car = try reflector.convert(fromJSONDictionaryData: responseData, to: Car.self)
+            let car = try reflector.convert(fromJSONDictionaryData: responseData, to: Car.self) as! Car
             XCTAssert(car.make == "Honda")
             XCTAssert(car.model == "Civic")
             XCTAssert(car.year == 1988)
@@ -200,7 +200,7 @@ class RetroluxReflectorTests: XCTestCase {
         let reflector = Reflector()
         
         do {
-            let cars = try reflector.convert(fromJSONArrayData: responseData, to: Car.self)
+            let cars = try reflector.convert(fromJSONArrayData: responseData, to: Car.self) as! [Car]
             XCTAssert(cars.count == 2)
             
             let first = cars.first
@@ -265,7 +265,7 @@ class RetroluxReflectorTests: XCTestCase {
         let reflector = Reflector()
 
         do {
-            let bob = try reflector.convert(fromDictionary: dictionary, to: Person.self)
+            let bob = try reflector.convert(fromDictionary: dictionary, to: Person.self) as! Person
             XCTAssert(bob.name == "Bob")
             XCTAssert(bob.friends.count == 2)
             
@@ -308,7 +308,7 @@ class RetroluxReflectorTests: XCTestCase {
         let reflector = Reflector()
 
         do {
-            let bob = try reflector.convert(fromJSONDictionaryData: data, to: Person.self)
+            let bob = try reflector.convert(fromJSONDictionaryData: data, to: Person.self) as! Person
             XCTAssert(bob.name == "Bob")
             XCTAssert(bob.friends.count == 1)
             
@@ -355,7 +355,7 @@ class RetroluxReflectorTests: XCTestCase {
         let reflector = Reflector()
 
         do {
-            let bobby = try reflector.convert(fromJSONDictionaryData: data, to: Person.self)
+            let bobby = try reflector.convert(fromJSONDictionaryData: data, to: Person.self) as! Person
             XCTAssert(bobby.person_name == "Bobby")
             
             guard let pet = bobby.pet else {
@@ -520,7 +520,7 @@ class RetroluxReflectorTests: XCTestCase {
             
             XCTAssert(dictionary["upgraded_at"] is NSNull)
 
-            let serialized = try reflector.convert(fromJSONDictionaryData: data, to: Person.self)
+            let serialized = try reflector.convert(fromJSONDictionaryData: data, to: Person.self) as! Person
             XCTAssert(serialized.name == object.name)
             XCTAssert(serialized.age == object.age)
             XCTAssert(serialized.born.toString() == object.born.toString())
