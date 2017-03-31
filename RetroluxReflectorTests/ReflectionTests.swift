@@ -29,11 +29,11 @@ class ReflectionTests: XCTestCase {
     
     func testRLObjectBasicSerialization() {
         class Model: Reflection {
-            dynamic var name = ""
-            dynamic var age = 0
-            dynamic var whatever = false
-            dynamic var meta = [String: String]()
-            dynamic var model: Model?
+            var name = ""
+            var age = 0
+            var whatever = false
+            var meta = [String: String]()
+            var model: Model?
         }
         
         let dictionary = [
@@ -59,8 +59,8 @@ class ReflectionTests: XCTestCase {
     
     func testRLObjectIgnoredProperties() {
         class Object: Reflection {
-            dynamic var name = ""
-            dynamic var age = 0
+            var name = ""
+            var age = 0
             
             override class var ignoredProperties: [String] {
                 return ["name"]
@@ -77,8 +77,8 @@ class ReflectionTests: XCTestCase {
     
     func testRLObjectIgnoredErrorsForProperties() {
         class Object: Reflection {
-            dynamic var name = "default_value"
-            dynamic var age = 0
+            var name = "default_value"
+            var age = 0
             
             override class var ignoreErrorsForProperties: [String] {
                 return ["name"]
@@ -101,7 +101,7 @@ class ReflectionTests: XCTestCase {
     
     func testRLObjectMappedProperties() {
         class Object: Reflection {
-            dynamic var description_ = ""
+            var description_ = ""
             
             override class var mappedProperties: [String: String] {
                 return ["description_": "description"]
@@ -122,7 +122,7 @@ class ReflectionTests: XCTestCase {
      */
     func testRLObjectInheritance() {
         class Plain: Reflection {
-            dynamic var bad = ""
+            var bad = ""
             
             override func set(value: Any?, forProperty property: Property) throws {
                 try super.set(value: "bad", forProperty: property)
@@ -149,7 +149,7 @@ class ReflectionTests: XCTestCase {
             }
             
             override class var transformedProperties: [String: RetroluxReflector.ValueTransformer] {
-                return ["bad": ReflectableTransformer()]
+                return ["bad": ReflectableTransformer(reflector: Reflector())]
             }
         }
         
@@ -179,7 +179,7 @@ class ReflectionTests: XCTestCase {
             }
             
             override class var transformedProperties: [String: RetroluxReflector.ValueTransformer] {
-                return ["good": ReflectableTransformer()]
+                return ["good": ReflectableTransformer(reflector: Reflector())]
             }
         }
         

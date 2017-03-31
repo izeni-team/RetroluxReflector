@@ -8,8 +8,12 @@
 
 import Foundation
 
-public class ReflectableTransformer: ValueTransformer {    
-    public init() {}
+public class ReflectableTransformer: ValueTransformer {
+    let reflector: Reflector
+    
+    public init(reflector: Reflector) {
+        self.reflector = reflector
+    }
     
     public func supports(targetType: Any.Type) -> Bool {
         return targetType is Reflectable.Type
@@ -32,7 +36,7 @@ public class ReflectableTransformer: ValueTransformer {
             let dictionary = value as! [String: Any]
             
             let instance = protoType.init()
-            let properties = try Reflector().reflect(instance)
+            let properties = try reflector.reflect(instance)
             for property in properties {
                 try instance.set(value: dictionary[property.mappedTo], for: property)
             }
@@ -42,7 +46,7 @@ public class ReflectableTransformer: ValueTransformer {
                 throw ValueTransformationError.typeMismatch(got: type(of: value))
             }
             var output: [String: Any] = [:]
-            let properties = try Reflector().reflect(object)
+            let properties = try reflector.reflect(object)
             for property in properties {
                 output[property.mappedTo] = try object.value(for: property) ?? NSNull()
             }

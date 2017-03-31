@@ -171,7 +171,7 @@ class ReflectionErrorTests: XCTestCase {
                 super.init()
             }
             
-            static let transformedProperties: [String: RetroluxReflector.ValueTransformer] = ["does_not_exist": ReflectableTransformer()]
+            static let transformedProperties: [String: RetroluxReflector.ValueTransformer] = ["does_not_exist": ReflectableTransformer(reflector: Reflector())]
         }
         
         let object = Object1()

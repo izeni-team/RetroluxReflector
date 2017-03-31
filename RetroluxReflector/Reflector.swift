@@ -32,6 +32,15 @@ public enum ReflectionError: Error {
 }
 
 open class Reflector {
+    open var cache: [ObjectIdentifier: [Property]] = [:]
+    open var lock = OSSpinLock()
+    open class var shared: Reflector {
+        struct Static {
+            static let instance = Reflector()
+        }
+        return Static.instance
+    }
+    
     public init() {}
     
     open func convert(fromJSONArrayData arrayData: Data, to type: Reflectable.Type) throws -> [Reflectable] {
@@ -111,6 +120,16 @@ open class Reflector {
     }
     
     open func reflect(_ instance: Reflectable) throws -> [Property] {
+        OSSpinLockLock(&lock)
+        defer {
+            OSSpinLockUnlock(&lock)
+        }
+        
+        let cacheID = ObjectIdentifier(type(of: instance))
+        if let cached = cache[cacheID] {
+            return cached
+        }
+        
         var properties = [Property]()
         let subjectType = type(of: instance)
         
@@ -199,9 +218,9 @@ open class Reflector {
             if let custom = transformed[label] {
                 transformer = custom
             } else {
-                transformer = ReflectableTransformer()
+                transformer = ReflectableTransformer(reflector: self)
             }
-                        
+            
             var transformerMatched = false
             guard let type = PropertyType.from(valueType, transformer: transformer, transformerMatched: &transformerMatched) else {
                 // We don't know what type this property is, so it's unsupported.
@@ -265,6 +284,8 @@ open class Reflector {
             let property = Property(type: type, name: label, required: required, mappedTo: finalMappedKey, transformer: transformer)
             properties.append(property)
         }
+        
+        cache[cacheID] = properties
         
         return properties
     }

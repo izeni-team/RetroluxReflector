@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		343CDAC81E8DC412009AF31D /* PerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343CDAC71E8DC412009AF31D /* PerformanceTests.swift */; };
 		496844FA1DB4AE4100825321 /* RetroluxReflector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 499BECCB1DB4896B00FCECD1 /* RetroluxReflector.framework */; };
 		496845051DB4AE6700825321 /* ReflectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496845001DB4AE6700825321 /* ReflectorTests.swift */; };
 		496845061DB4AE6700825321 /* ReflectionErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496845011DB4AE6700825321 /* ReflectionErrorTests.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		343CDAC71E8DC412009AF31D /* PerformanceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformanceTests.swift; sourceTree = "<group>"; };
 		496844F51DB4AE4100825321 /* RetroluxReflectorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RetroluxReflectorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		496844F91DB4AE4100825321 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		496845001DB4AE6700825321 /* ReflectorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReflectorTests.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				496845041DB4AE6700825321 /* DateTransformer.swift */,
 				496844F91DB4AE4100825321 /* Info.plist */,
 				4968450A1DB4AFB400825321 /* ValueTransformerTests.swift */,
+				343CDAC71E8DC412009AF31D /* PerformanceTests.swift */,
 			);
 			path = RetroluxReflectorTests;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				343CDAC81E8DC412009AF31D /* PerformanceTests.swift in Sources */,
 				496845071DB4AE6700825321 /* PropertyTypeTests.swift in Sources */,
 				4968450B1DB4AFB400825321 /* ValueTransformerTests.swift in Sources */,
 				496845051DB4AE6700825321 /* ReflectorTests.swift in Sources */,

@@ -19,7 +19,7 @@ class ValueTransformerTests: XCTestCase {
             "name": "Bob"
         ]
         
-        let transformer = ReflectableTransformer()
+        let transformer = ReflectableTransformer(reflector: Reflector())
         XCTAssert(transformer.supports(targetType: Test.self))
         XCTAssert(transformer.supports(value: dictionary, targetType: Test.self, direction: .forwards))
         
@@ -40,7 +40,7 @@ class ValueTransformerTests: XCTestCase {
             "name": "bob"
         ]
         
-        let transformer = ReflectableTransformer()
+        let transformer = ReflectableTransformer(reflector: Reflector())
         XCTAssert(transformer.supports(targetType: Test.self))
         XCTAssert(transformer.supports(value: dictionary, targetType: Test.self, direction: .forwards))
         
@@ -72,7 +72,7 @@ class ValueTransformerTests: XCTestCase {
         test.another?.another?.age = 20
         
         do {
-            let transformer = ReflectableTransformer()
+            let transformer = ReflectableTransformer(reflector: Reflector())
             guard let output = try transformer.transform(test, targetType: Test.self, direction: .backwards) as? [String: Any] else {
                 XCTFail("Invalid type returned--expected a dictionary")
                 return
@@ -98,7 +98,7 @@ class ValueTransformerTests: XCTestCase {
         
         let dictionary: [String: Any] = [:] // Should trigger a key not found error.
         
-        let transformer = ReflectableTransformer()
+        let transformer = ReflectableTransformer(reflector: Reflector())
         
         do {
             _ = try transformer.transform(dictionary, targetType: Test.self, direction: .forwards) as? Test

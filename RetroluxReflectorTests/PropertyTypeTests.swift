@@ -17,11 +17,10 @@ class PropertyTypeTests: XCTestCase {
         XCTAssert(PropertyType.from(Int.self) == .number)
         XCTAssert(PropertyType.from(Double.self) == .number)
         
-        let transformer = ReflectableTransformer()
+        let transformer = ReflectableTransformer(reflector: Reflector())
         var matched = false
         XCTAssert(PropertyType.from(Reflection.self, transformer: transformer, transformerMatched: &matched) == .transformable(transformer: transformer, targetType: Reflection.self))
         XCTAssert(matched)
-        matched = false
         
         XCTAssert(PropertyType.from([Int?].self) == .array(type: .optional(wrapped: .number)))
         XCTAssert(PropertyType.from([String: Int?].self) == .dictionary(type: .optional(wrapped: .number)))
@@ -39,9 +38,9 @@ class PropertyTypeTests: XCTestCase {
         class Object2: Reflection {}
         
         class Object1: Reflection {
-            dynamic var test = ""
-            dynamic var test2 = [String: [Int]]()
-            dynamic var test3 = [Object2]()
+            var test = ""
+            var test2 = [String: [Int]]()
+            var test3 = [Object2]()
         }
         
         do {
@@ -56,7 +55,7 @@ class PropertyTypeTests: XCTestCase {
             XCTAssert(propertyTypes == [
                 PropertyType.string,
                 PropertyType.dictionary(type: .array(type: .number)),
-                PropertyType.array(type: PropertyType.transformable(transformer: ReflectableTransformer(), targetType: Object2.self))
+                PropertyType.array(type: PropertyType.transformable(transformer: ReflectableTransformer(reflector: Reflector()), targetType: Object2.self))
                 ])
         } catch let error {
             XCTFail("\(error)")
